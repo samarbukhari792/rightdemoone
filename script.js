@@ -1,3 +1,42 @@
+// Mobile Menu Functionality
+const menuBtn = document.querySelector('.menu-btn');
+const mobileMenu = document.querySelector('.mobile-menu');
+const closeMenuBtn = document.querySelector('.close-menu');
+
+// Toggle mobile menu
+menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+});
+
+// Close mobile menu with close button
+if (closeMenuBtn) {
+    closeMenuBtn.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+}
+
+// Close mobile menu when clicking outside
+window.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('active') && !menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+        menuBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Close mobile menu when clicking on menu item
+mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
+
 // Language Toggle
 const languageToggle = document.querySelector('.language-toggle');
 const englishLang = languageToggle.querySelector('.active-lang');
