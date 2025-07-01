@@ -139,19 +139,27 @@ body {
 
 .nav-content {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+
+.logo {
+    flex: 0 0 auto;
+    margin-right: 2rem;
 }
 
 .logo h1 {
     font-size: 1.5rem;
     color: var(--primary-color);
+    margin: 0;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     gap: 2rem;
+    margin-left: auto;
 }
 
 .nav-links a {
@@ -160,10 +168,26 @@ body {
     font-weight: 500;
     transition: var(--transition);
     padding: 0.5rem;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
     color: var(--secondary-color);
+}
+
+/* Desktop Navigation Spacing */
+@media (min-width: 769px) {
+    .nav-content {
+        padding: 0 2rem;
+    }
+
+    .logo {
+        margin-right: auto;
+    }
+
+    .nav-links {
+        margin-left: 2rem;
+    }
 }
 
 /* Mobile Menu */
